@@ -28,7 +28,7 @@ Aşağıdaki yapıların eklenmesini ve konfigüre edilmesini sağlayınız:
 
    - `Views` adında bir klasör oluşturun.
    
- 3. wwwroot Klasörü:
+ 4. wwwroot Klasörü:
 
    - `wwwroot`  adında bir klasör oluşturun.
    
@@ -37,80 +37,18 @@ Sonrasında, Program.cs dosyasını kullanarak aşağıdaki yapılandırma işle
 1. MVC Servislerinin Eklenmesi:
 
    - MVC uygulama özelliklerini etkinleştirmek ve hem view'leri hem de controller'ları kullanabilmek için gerekli servisleri ekleyiniz.
-## Kod
-```csharp
-    static void Main(string[] args)
-    {
-        // Yapıcı method'u olan class'dan list tanımlama
-        List<Students> students = new List<Students>
-        {
-            new Students(1, "Ali", 1),
-            new Students(2, "Ayşe",2),
-            new Students(3, "Mehmet",1),
-            new Students(4, "Fatma",3),
-            new Students(5, "Ahmet",2),
-        };
 
-        // Yapıcı methodu olmayan class'dan list tanımlama
-        List<Classes> classes = new List<Classes>()
-        {
-            new Classes{ClassId = 1, ClassName ="Matematik"},
-            new Classes{ClassId = 2, ClassName ="Türkçe"},
-            new Classes{ClassId = 3, ClassName ="Kimya"},
-        };
+2. Statik Dosyaların Kullanımının Belirtilmesi:
 
-        var query = classes.GroupJoin(students,
-                                      classes => classes.ClassId,
-                                      student => student.ClassId,
-                                      (classes,student) => new
-                                      {
-                                          ClassName = classes.ClassName,
-                                          StudentName = student.Select(student => student.StudentName)
-                                      });
+   - `wwwroot` klasöründe bulunan statik dosyaların kullanılmasını sağlayacak konfigürasyonları ekleyiniz.
+  
+3. Routing Konfigürasyonu:
 
-
-        foreach(var c in query)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Sınıf: "+c.ClassName);
-            Console.ResetColor();
-            foreach(var s in c.StudentName)
-            {
-                Console.WriteLine("Öğrenci: " + s);
-            }
-            Console.WriteLine("*******************\r\n");
-
-        }
-
-    }
-
-
-    // Student Class
-    public class Students
-    {
-        public int StudentId { get; set; }
-        public string StudentName { get; set; }
-        public int ClassId { get; set; }
-
-        public Students(int studentId, string studentName, int classId)
-        {
-            StudentId = studentId;
-            StudentName = studentName;
-            ClassId = classId;
-        }
-    }
-
-    // Classes Class
-    public class Classes
-    {
-        public int ClassId { get; set; }
-        public string ClassName { get; set; }
-    }
-}
-```
-
-## Uygulama Çıktısı: 
-![resim](https://github.com/user-attachments/assets/c9e6a924-8130-437f-8cde-30404ea1f272)
+   - Tarayıcıdan gelen isteklerin doğru şekilde yönlendirilmesini sağlamak amacıyla routing yapılandırmasını tamamlayınız.
+  
+   --------------------------------------------------------------------------------------------------------------
+   Controller - Action - Model -  View - Razor - RazorView - wwwroot kavramlarının ve builder.Build() - app.Run() metotlarının ne işe yaradıklarını,
+   hangi amaçla kullanıldıklarını Program.cs'in en alt kısmında yorum satırı olarak açıklayınız.
 
 
 
