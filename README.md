@@ -23,25 +23,20 @@ Aşağıdaki yapıların eklenmesini ve konfigüre edilmesini sağlayınız:
  2. Models Klasörü:
 
    - `Models` adında bir klasör oluşturun.
+     
+ 3. Views Klasörü:
 
+   - `Views` adında bir klasör oluşturun.
    
+ 3. wwwroot Klasörü:
 
-Aşağıdaki görevleri yerine getirin:
+   - `wwwroot`  adında bir klasör oluşturun.
+   
+Sonrasında, Program.cs dosyasını kullanarak aşağıdaki yapılandırma işlemlerini gerçekleştiriniz:
 
-1. Tabloyu Tanımlayın:
+1. MVC Servislerinin Eklenmesi:
 
-   `Student` ve `Class` isimli iki sınıf oluşturun. Her bir sınıf için uygun veri türlerini kullanarak C# sınıflarını tanımlayın.
-
-2. Veri Listelemesi:
-
-   ![fqZCLaJ-xxxxxxxxxxx](https://github.com/user-attachments/assets/e4fa8699-8b04-446a-afe9-dea8e240bc1b)
-
-
-3. LINQ Sorgusu:
-
-   Öğrenciler ve sınıflar arasında `group join` işlemi yaparak, her sınıfın altında o sınıfa ait olan öğrencilerin listelendiği bir sonuç elde edin. Sonuçları sınıf adıyla birlikte, o sınıfa ait öğrencilerin isimleriyle birlikte ekrana yazdıran bir LINQ sorgusu yazın.
-
-
+   - MVC uygulama özelliklerini etkinleştirmek ve hem view'leri hem de controller'ları kullanabilmek için gerekli servisleri ekleyiniz.
 ## Kod
 ```csharp
     static void Main(string[] args)
